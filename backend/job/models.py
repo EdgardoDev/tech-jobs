@@ -29,17 +29,16 @@ class Experience(models.TextChoices):
     SENIOR_LEVEL = 'Senior Level'
     
     
-class Skills(models.TextChoices):
-    PYTHON = 'Python'
-    SQL = 'SQL'
-    JAVA = 'JAVA'
-    C_PLUSPLUS = 'C++'
-    JAVASCRIPT = 'JavaScript' 
-    GO = 'Go'
-    C_SHARP = 'C#'
-    NODEJS = 'NodeJS'
-    REACT = 'React'
-    TYPESCRIPT = 'TypeScript'
+class Field(models.TextChoices):
+    SOFTWARE_DEVELOPMENT = 'Software Development'
+    NETWORK_ENGINEERING = 'Network Engineering'
+    USER_SUPPORT = 'User Support'
+    PROJECT_MANAGEMENT = 'Project Management'
+    WEB_DEVELOPMENT = 'Web Development' 
+    INFORMATION_SECURITY = 'Information Security'
+    SYSTEM_ARCHITECTURE = 'Systems Architecture'
+    DATABASE_ADMINISTRATION = 'Database Administration'
+    SYSTEMS_ADMINISTRATION = 'Systems Administration'
     
 def return_date_time():
     now = datetime.now()
@@ -62,14 +61,14 @@ class Job(models.Model):
         default=Education.BACHELORS
     )
     experience = models.CharField(
-        max_length=10,
+        max_length=20,
         choices=Experience.choices,
         default=Experience.ENTRY_LEVEL
     )
-    skills = models.CharField(       
-        max_length=10,
-        choices=Skills.choices,
-        default=Skills.PYTHON
+    Field = models.CharField(       
+        max_length=30,
+        choices=Field.choices,
+        default=Field.SOFTWARE_DEVELOPMENT
     )
     education = models.CharField(
         max_length=10,
