@@ -90,8 +90,11 @@ class Job(models.Model):
     
     def save(self, *args, **kwargs):
         g = geocoder.mapquest(self.address, key=os.environ.get('GEOCODER_API'))
-        long = g.long
+        
+        print(g)
+        
+        lng = g.lng
         lat = g.lat
         
-        self.point = Point(long, lat)
+        self.point = Point(lng, lat)
         super(Job, self).save(*args, **kwargs)
