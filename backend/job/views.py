@@ -4,11 +4,12 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.db.models import Avg, Min, Max, Count
+from rest_framework.pagination import PageNumberPagination
 
 from .serializers import JobSerializer
 from .models import Job
 from django.shortcuts import get_object_or_404
-from .filters import JobFilter
+from .filters import JobsFilter
 
 # Create your views here.
 
@@ -16,10 +17,22 @@ from .filters import JobFilter
 @api_view(['GET'])
 def getAllJobs(request):
     
-    filterset = JobFilter(request.GET, queryset=Job.objects.all().order_by('id'))
+    # Filter jobs
+    filterset = JobsFilter(request.GET, queryset=Job.objects.all().order_by('id'))
+    count = filterset.qs.count()
     
-    serializer = JobSerializer(filterset.qs, many=True)
-    return Response(serializer.data)
+    # Pagination
+    resultsPerPage = 3
+    paginator = PageNumberPagination()
+    paginator.page_size = resultsPerPage
+    queryset = paginator.paginate_queryset(filterset.qs, request)
+    
+    serializer = JobSerializer(queryset, many=True)
+    return Response({
+        'count': count,
+        'resultsPerPage': resultsPerPage,
+        'jobs': serializer.data
+        })
 
 # Get job by ID
 @api_view(['GET'])
