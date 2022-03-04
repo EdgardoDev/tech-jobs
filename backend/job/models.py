@@ -55,17 +55,12 @@ class Job(models.Model):
         choices=JobType.choices,
         default=JobType.FULL_TIME
     )
-    education = models.CharField(
-        max_length=10,
-        choices=Education.choices,
-        default=Education.BACHELORS
-    )
     experience = models.CharField(
         max_length=20,
         choices=Experience.choices,
         default=Experience.ENTRY_LEVEL
     )
-    Field = models.CharField(       
+    field = models.CharField(       
         max_length=30,
         choices=Field.choices,
         default=Field.SOFTWARE_DEVELOPMENT
