@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 
-
+# Handle 404 errors
 def handler404(request, exception):
     message = ('Route Not Found')
     response = JsonResponse(data={ 'error': message })
