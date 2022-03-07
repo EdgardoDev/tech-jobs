@@ -71,4 +71,20 @@ def updateUser(request):
     serializer = UserSerializer(user, many=False)
     return Response(serializer.data)
 
-handler500 = 'rest_framework.exceptions.server_error'
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def uploadCV(request):
+    
+    user = request.user
+    resume = request.FILES['resume']
+    
+    if resume == '':
+        return Response({ 'error': 'Please Upload Your Resume!'})
+    
+    user.userprofile.resume = resume
+    user.userprofile.save()
+    
+    serializer = UserSerializer(user, many=False)
+    return Response(serializer.data)
+
