@@ -8,7 +8,7 @@ from rest_framework.pagination import PageNumberPagination
 
 from rest_framework.permissions import IsAuthenticated
 
-from .serializers import JobSerializer
+from .serializers import CandidatesAppliedSerializer, JobSerializer
 from .models import CandidatesApplied, Job
 from django.shortcuts import get_object_or_404
 from .filters import JobsFilter
@@ -159,3 +159,17 @@ def applyToJob(request, pk):
     }, 
     status=status.HTTP_200_OK
     )
+    
+    
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getCurrentUserAppliedJobs(request, pk):
+    
+    args = { 'user.id': request.user.id }
+    
+    jobs = CandidatesApplied.objects.filter(**args)
+    
+    serializer = CandidatesAppliedSerializer(jobs, many=True)
+    
+    return Response(serializer.data)
