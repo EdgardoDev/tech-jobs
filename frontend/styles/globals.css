@@ -132,7 +132,6 @@ body {
 }
 
 /* Loader Styles */
-
 .center-loader {
   margin-left: auto;
   margin-right: auto;
@@ -145,6 +144,7 @@ body {
   width: 80px;
   height: 80px;
 }
+
 .lds-ellipsis div {
   position: absolute;
   top: 33px;
@@ -154,22 +154,27 @@ body {
   background: #2557a7;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
+
 .lds-ellipsis div:nth-child(1) {
   left: 8px;
   animation: lds-ellipsis1 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(2) {
   left: 8px;
   animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(3) {
   left: 32px;
   animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(4) {
   left: 56px;
   animation: lds-ellipsis3 0.6s infinite;
 }
+
 @keyframes lds-ellipsis1 {
   0% {
     transform: scale(0);
@@ -196,12 +201,12 @@ body {
 }
 
 /* Button Loader Styles */
-
 .lds-dual-ring {
   display: inline-block;
   width: 16px;
   height: 16px;
 }
+
 .lds-dual-ring:after {
   content: " ";
   display: block;
@@ -212,6 +217,7 @@ body {
   border-color: #fff transparent #fff transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
@@ -222,7 +228,6 @@ body {
 }
 
 /* Home Page Styles */
-
 .stats-button {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -316,7 +321,6 @@ body {
 }
 
 /* Job Details Page */
-
 .job-details-wrapper {
   background: #f5f7fa;
   padding-top: 50px;
@@ -356,7 +360,6 @@ body {
 }
 
 /* Footer */
-
 footer {
   margin-top: 6rem;
   color: grey;
@@ -365,7 +368,6 @@ footer {
 }
 
 /* Pagination */
-
 .page-item.active .page-link {
   background-color: #2557a7;
   border-color: #2557a7;
@@ -380,7 +382,6 @@ footer {
 }
 
 /* 404 Page */
-
 .page-not-found-wrapper {
   display: flex;
   flex-direction: column;
@@ -395,13 +396,13 @@ footer {
 }
 
 /* Login, Register, Upload, Search */
-
 .modalMask {
   display: flex;
   min-height: 90vh;
   justify-content: center;
   align-items: center;
 }
+
 .modalWrapper {
   width: 75%;
   height: 70vh;
@@ -414,9 +415,11 @@ footer {
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
+
 .h70 {
   height: 60%;
 }
+
 .right {
   border-left: 1px solid rgb(196, 196, 196);
   display: flex;
@@ -424,6 +427,7 @@ footer {
   padding: 0 20px;
   width: 100%;
 }
+
 .rightContentWrapper,
 .leftContentWrapper {
   height: 100%;
@@ -432,12 +436,14 @@ footer {
   flex-direction: column;
   justify-content: center;
 }
+
 .headerWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
 }
+
 .headerWrapper h2 {
   display: flex;
   justify-content: center;
@@ -446,10 +452,12 @@ footer {
   font-weight: bold;
   margin-left: 10px;
 }
+
 .LoginLogoWrapper,
 .RegisterLogoWrapper {
   width: 34px;
 }
+
 .left {
   display: flex;
   align-items: center;
@@ -460,6 +468,7 @@ footer {
   display: flex;
   flex-direction: column;
 }
+
 .form input {
   width: 100%;
   padding-left: 10px;
@@ -468,6 +477,7 @@ footer {
   font-size: 13px;
   background: rgb(241, 241, 241);
 }
+
 .inputBox {
   display: flex;
   align-items: center;
@@ -477,14 +487,17 @@ footer {
   background: rgb(241, 241, 241);
   margin-bottom: 15px;
 }
+
 .inputBox i {
   font-size: 12px;
 }
+
 .inputWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .loginButtonWrapper,
 .registerButtonWrapper,
 .searchButtonWrapper,
@@ -494,6 +507,7 @@ footer {
   justify-content: center;
   margin: 10px 0;
 }
+
 .loginButton,
 .registerButton,
 .searchButton,
@@ -544,6 +558,7 @@ footer {
 .uploadButton:focus {
   outline: none;
 }
+
 .signup {
   display: flex;
   justify-content: center;
@@ -553,6 +568,7 @@ footer {
   cursor: pointer;
   color: rgb(36, 36, 36);
 }
+
 .signup a {
   text-decoration: none;
   color: var(--primary);
@@ -584,13 +600,13 @@ footer {
 }
 
 /* Post a new job */
-
 .newJobcontainer {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px 0;
 }
+
 .newJobcontainer .formWrapper {
   background: #fff;
   padding: 20px;
@@ -612,6 +628,7 @@ footer {
 .newJobcontainer .boxWrapper:not(:first-child) {
   margin: 36px 0;
 }
+
 .newJobcontainer .boxWrapper h4 {
   margin-bottom: 15px;
 }
@@ -622,6 +639,7 @@ footer {
   justify-content: flex-start;
   align-items: center;
 }
+
 .newJobcontainer select {
   background-color: white;
   border: thin solid var(--primary);
