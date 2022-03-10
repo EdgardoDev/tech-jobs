@@ -1,7 +1,29 @@
-import React from "react"
+import React, { useEffect } from "react"
 import moment from "moment"
+import mapboxgl from "mapbox-gl/dist/mapbox-gl.js"
+
+mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN
+
 
 const JobDetails = ({ job, candidates }) => {
+    
+
+
+    useEffect(async () => {
+        // Extract ccordinates from the point field using split()
+        const coordinates = job.point.split("(")[1].replace(")", "").split(" ")
+        
+        // Create the map and set the center point
+        const map = new mapboxgl.Map({
+            container: 'job-map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: coordinates,
+            zoom: 12
+        });
+        // Add a marker
+        new mapboxgl.Marker().setLngLat(coordinates).addTo(map)
+    }, [])
+
   return (
     <div className="job-details-wrapper">
       <div className="container container-fluid">
@@ -22,7 +44,7 @@ const JobDetails = ({ job, candidates }) => {
                 <div className="mt-3">
                   <span>
                     <button className="apply-btn">
-                     <i class="fas fa-pen"></i> APPLY NOW
+                     <i className="fas fa-pen"></i> APPLY NOW
                     </button>
                     <span className="ml-4 text-success">
                       <b>{candidates}</b> candidates has applied to this job.
@@ -34,7 +56,7 @@ const JobDetails = ({ job, candidates }) => {
               <div className="job-description mt-5">
                 <h4>Description</h4>
                 <p>
-                    {job.description}
+                {job.description}
                 </p>
               </div>
 
@@ -83,6 +105,7 @@ const JobDetails = ({ job, candidates }) => {
 
               <div className="job-location">
                 <h4 className="mt-5 mb-4">Job Location</h4>
+                <div id="job-map" style={{ height: 520, width: '100%' }} />
               </div>
             </div>
           </div>
