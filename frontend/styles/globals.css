@@ -46,7 +46,7 @@ body {
 
 .logo-wrapper {
   font-family: 'Roboto', sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -56,12 +56,11 @@ body {
 .logo-img-wrapper {
   width: 27px;
   display: flex;
-  margin-right: 10px;
-
 }
 
 .logo-one {
   color: #7e57c2;
+  margin-left: 10px;
 }
 
 .logo-two {
@@ -78,12 +77,11 @@ body {
   padding-right: 1rem;
   line-height: 1.5;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   outline: none;
   margin-left: 1rem;
   cursor: pointer;
-  height: 2.5rem;
-  letter-spacing: 1px;
+  height: 2rem;
   transition: all 0.5s;
 }
 
@@ -94,7 +92,7 @@ body {
   position: relative;
   color: #ffffff;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: .8rem;
   transition: 0.3s;
 }
 
@@ -103,7 +101,7 @@ body {
 }
 
 .login-button-header {
-  background-color: #2557a7;
+  background: #1976d2;
   border: #2557a7;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -111,10 +109,12 @@ body {
   outline: none;
   margin-left: 1rem;
   cursor: pointer;
-  border-radius: 0.5rem;
-  height: 2.5rem;
-  letter-spacing: 1px;
-  transition: all 0.5s;
+  border-radius: 0.3rem;
+  height: 2rem;
+  
+  background: linear-gradient(to left, #1976d2  50%, #0d47a1 50%) right;
+  background-size: 200%;
+  transition: .3s;
 }
 .login-button-header span {
   padding: 3px;
@@ -123,12 +123,11 @@ body {
   position: relative;
   color: #ffffff;
   font-weight: 500;
-  font-size: 1rem;
-  transition: 0.3s;
+  font-size: .8rem;
 }
 
 .login-button-header:hover {
-  background: #1e88e5;
+  background-position: left;
 }
 
 /* Loader Styles */
@@ -235,10 +234,9 @@ body {
   margin-top: -35px;
   text-transform: uppercase;
   font-weight: 500;
-  letter-spacing: 1px;
   border-radius: 0.5rem;
-  height: 2.5rem;
-  font-size: 1rem;
+  height: 2rem;
+  font-size: .8rem;
 }
 
 .job-listing {
@@ -356,7 +354,26 @@ body {
 }
 
 .apply-btn {
-  border-radius: 20px;
+  background: #1976d2;
+  border: #2557a7;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  height: 2rem;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: .8rem;
+  
+  background: linear-gradient(to left, #1976d2  50%, #0d47a1 50%) right;
+  background-size: 200%;
+  transition: .3s;
+}
+
+.apply-btn:hover {
+  background-position: left;
 }
 
 /* Footer */

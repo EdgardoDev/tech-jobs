@@ -9,7 +9,7 @@ const Header = () => {
         <Link href="/">
           <div className="logo-wrapper">
             <div className="logo-image-wrapper">
-              <Image width="75" height="75" src="/images/logo-header.png" alt="" />
+              <Image width="40" height="40" src="/images/logo.png" alt="" />
             </div>
             <span className="logo-one">TECH</span>
             <span className="logo-two">JOBS</span>
