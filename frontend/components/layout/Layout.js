@@ -9,7 +9,7 @@ function Layout({ children, title = 'Tech Jobs - Best IT Jobs Portal'}) {
   return (
     <div>
         <Head>
-            <title>{title}</title>
+            <title>{title} - Tech Jobs</title>
         </Head>
 
         <Script

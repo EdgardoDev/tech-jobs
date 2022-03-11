@@ -12,13 +12,12 @@ export default function Index({ data }) {
 }
 
 export async function getServerSideProps() {
-
   const res = await axios.get(`${process.env.API_URL}/api/jobs/`)
   const data = res.data
 
   return {
     props: {
       data,
-    }
+    },
   }
 }
