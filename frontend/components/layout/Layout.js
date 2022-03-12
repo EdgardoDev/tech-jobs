@@ -5,11 +5,11 @@ import Script from 'next/script'
 import Header from './Header'
 import Footer from './Footer'
 
-function Layout({ children, title = 'Tech Jobs - Best IT Jobs Portal'}) {
+function Layout({ children, title = 'Tech Jobs'}) {
   return (
     <div>
         <Head>
-            <title>{title} - Tech Jobs</title>
+            <title>{title} - Best IT Jobs Portal</title>
         </Head>
 
         <Script

@@ -1,10 +1,13 @@
 import React from "react"
 import Link from "next/link"
 import JobItem from "./job/JobItem"
+import { useRouter } from "next/router";
 
 const Home = ({ data }) => {
 
   const { jobs, count, resPerPage } = data
+  const router = useRouter()
+  let { keyword } = router.query
 
   return (
     <>
@@ -16,7 +19,9 @@ const Home = ({ data }) => {
 
           <div className="col-xl-9 col-lg-8 content-left-offset">
             <div className="my-5">
-              <h4 className="page-title">LATEST JOBS</h4>
+              <h4 className="page-title">
+              {keyword ? `${jobs.length} Results for ${keyword}` : "LATEST JOBS"}  
+              </h4>
               <Link href="/stats">
                 <button className="btn btn-secondary float-right stats-button">
                 <i aria-hidden className="fas fa-comment"></i>  Get Topic stats

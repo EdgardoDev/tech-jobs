@@ -413,14 +413,14 @@ footer {
 }
 
 /* Login, Register, Upload, Search */
-.modalMask {
+.modal-mask {
   display: flex;
   min-height: 90vh;
   justify-content: center;
   align-items: center;
 }
 
-.modalWrapper {
+.modal-wrapper {
   width: 75%;
   height: 70vh;
   background: rgb(255, 255, 255);
@@ -438,15 +438,14 @@ footer {
 }
 
 .right {
-  border-left: 1px solid rgb(196, 196, 196);
   display: flex;
   align-items: center;
   padding: 0 20px;
   width: 100%;
 }
 
-.rightContentWrapper,
-.leftContentWrapper {
+.right-content-wrapper,
+.left-content-wrapper {
   height: 100%;
   width: 100%;
   display: flex;
@@ -454,14 +453,14 @@ footer {
   justify-content: center;
 }
 
-.headerWrapper {
+.header-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
 }
 
-.headerWrapper h2 {
+.header-wrapper h2 {
   display: flex;
   justify-content: center;
   font-size: 40px;
@@ -470,8 +469,8 @@ footer {
   margin-left: 10px;
 }
 
-.LoginLogoWrapper,
-.RegisterLogoWrapper {
+.login-logo-wrapper,
+.register-logo-wrapper {
   width: 34px;
 }
 
@@ -495,7 +494,7 @@ footer {
   background: rgb(241, 241, 241);
 }
 
-.inputBox {
+.input-box {
   display: flex;
   align-items: center;
   width: 85%;
@@ -505,67 +504,55 @@ footer {
   margin-bottom: 15px;
 }
 
-.inputBox i {
-  font-size: 12px;
+.input-box i {
+  font-size: 16px;
 }
 
-.inputWrapper {
+.input-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.loginButtonWrapper,
-.registerButtonWrapper,
-.searchButtonWrapper,
-.createButtonWrapper,
-.uploadButtonWrapper {
+.login-button-wrapper,
+.register-button-wrapper,
+.search-button-wrapper,
+.create-button-wrapper,
+.upload-button-wrapper {
   display: flex;
   justify-content: center;
   margin: 10px 0;
 }
 
-.loginButton,
-.registerButton,
-.searchButton,
+.login-button,
+.register-button,
+.search-button,
 .createButton,
-.uploadButton {
-  width: 170px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
+.upload-button {
+  background: #1976d2;
+  border: #2557a7;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+  outline: none;
   cursor: pointer;
-  margin: 20px;
-  height: 50px;
-  text-align: center;
-  border: none;
-  background-size: 300% 100%;
-  background-image: linear-gradient(
-    to right,
-    #25aae1,
-    #4481eb,
-    #04befe,
-    #3f86ed
-  );
-  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
-
-  border-radius: 50px;
-  moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  border-radius: 0.3rem;
+  height: 2rem;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: .8rem;
+  
+  background: linear-gradient(to left, #1976d2  50%, #0d47a1 50%) right;
+  background-size: 200%;
+  transition: .3s;
 }
 
-.loginButton:hover,
+.login-button:hover,
 .registerButton:hover,
-.searchButton:hover,
+.search-button:hover,
 .createButton:hover,
 .uploadButton:hover {
-  background-position: 100% 0;
-  moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  background-position: left;
 }
 
 .loginButton:focus,
