@@ -16,7 +16,7 @@ export async function getServerSideProps({ query }) {
 
   const keyword = query.keyword || ""
   const location = query.location || ""
-  const page = query.page || ""
+  const page = query.page || 1
 
   const queryString = `keyword=${keyword}&location=${location}&page=${page}`
 
