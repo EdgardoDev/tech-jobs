@@ -7,7 +7,7 @@ const NotFound = () => {
     <Layout title="Page Not Found">
         <div className="page-not-found-wrapper">
             <img 
-                src="/images/404.jpg" 
+                src="/images/404.svg" 
                 height="344" 
                 width="636" 
                 alt="404_not_found" 
