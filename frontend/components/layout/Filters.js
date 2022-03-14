@@ -1,10 +1,57 @@
 import React from "react"
+import { useRouter } from "next/router"
 
 const Filters = () => {
 
-    function handleClick(checkbox) {}
+    const router = useRouter()
+    let queryParams
 
-    function checkHandler(checkboxType, checkboxValue) {}
+    if(typeof window !== "undefined") {
+        queryParams = new URLSearchParams(window.location.search)
+    }
+
+    function handleClick(checkbox) {
+        if(typeof window !== "undefined") {
+            const checkboxes = document.getElementsByName(checkbox.name)
+
+            checkboxes.forEach(item => {
+                if(item !== checkbox) item.checked = false
+            })
+        }
+
+        if(checkbox.checked == false ) {
+            // Delete filter from the query
+            if(queryParams.has(checkbox.name)) {
+                queryParams.delete(checkbox.name)
+                router.replace({
+                    search: queryParams.toString()
+                })
+            }
+
+        } else {
+            // Set a new filter value if already exists
+            if(queryParams.has(checkbox.name)) {
+                queryParams.set(checkbox.name, checkbox.value)
+
+            } else {
+                // Append the new filter to the query
+                queryParams.append(checkbox.name, checkbox.value)
+            }
+
+            router.replace({
+                search: queryParams.toString()
+            })
+        }
+    }
+
+    // Persist filters on page reload
+    function checkHandler(checkboxType, checkboxValue) {
+        if(typeof window !== "undefined") {
+            const value = queryParams.get(checkboxType)
+            if(checkboxValue === value) return true
+            return false
+        }
+    }
 
   return (
     <div className="sidebar mt-5">
@@ -19,7 +66,7 @@ const Filters = () => {
           type="checkbox"
           name="jobType"
           id="check1"
-          value="Full Time"
+          value="Full-Time"
           defaultChecked={checkHandler("jobType", "Full-Time")}
           onClick={(e) => handleClick(e.target)}
         />
@@ -34,7 +81,7 @@ const Filters = () => {
           type="checkbox"
           name="jobType"
           id="check2"
-          value="Part Time"
+          value="Part-Time"
           defaultChecked={checkHandler("jobType", "Part-Time")}
           onClick={(e) => handleClick(e.target)}
         />
@@ -161,12 +208,12 @@ const Filters = () => {
           type="checkbox"
           name="experience"
           id="check8"
-          value="Entry Level"
-          defaultChecked={checkHandler("experience", "Entry Level")}
+          value="Entry-Level"
+          defaultChecked={checkHandler("experience", "Entry-Level")}
           onClick={(e) => handleClick(e.target)}
         />
         <label className="form-check-label" htmlFor="check8">
-          Entry Level
+          Entry-Level
         </label>
       </div>
 
@@ -176,12 +223,12 @@ const Filters = () => {
           type="checkbox"
           name="experience"
           id="check9"
-          value="Mid Level"
-          defaultChecked={checkHandler("experience", "Mid Level")}
+          value="Mid-Level"
+          defaultChecked={checkHandler("experience", "Mid-Level")}
           onClick={(e) => handleClick(e.target)}
         />
         <label className="form-check-label" htmlFor="check9">
-          Mid Level
+          Mid-Level
         </label>
       </div>
 
@@ -191,12 +238,12 @@ const Filters = () => {
           type="checkbox"
           name="experience"
           id="check10"
-          value="Senior Level"
-          defaultChecked={checkHandler("experience", "Senior Level")}
+          value="Senior-Level"
+          defaultChecked={checkHandler("experience", "Senior-Level")}
           onClick={(e) => handleClick(e.target)}
         />
         <label className="form-check-label" htmlFor="check10">
-          Senior Level
+          Senior-Level
         </label>
       </div>
 
@@ -229,7 +276,7 @@ const Filters = () => {
           onClick={(e) => handleClick(e.target)}
         />
         <label className="form-check-label" htmlFor="check12">
-          $50000 - $100,000
+          $50000 - $100.000
         </label>
       </div>
 
@@ -244,7 +291,7 @@ const Filters = () => {
           onClick={(e) => handleClick(e.target)}
         />
         <label className="form-check-label" htmlFor="check13">
-          $100,000 - $200,000
+          $100.000 - $200.000
         </label>
       </div>
 
@@ -259,7 +306,7 @@ const Filters = () => {
           onClick={(e) => handleClick(e.target)}
         />
         <label className="form-check-label" htmlFor="defaultCheck2">
-          $300,000 - $500,000
+          $300.000 - $500.000
         </label>
       </div>
 
@@ -274,13 +321,13 @@ const Filters = () => {
           onClick={(e) => handleClick(e.target)}
         />
         <label className="form-check-label" htmlFor="check14">
-          $500,000 - $1,000,000
+          $500.000 - $1.000.000
         </label>
       </div>
 
       <hr />
     </div>
-  );
-};
+  )
+}
 
 export default Filters
