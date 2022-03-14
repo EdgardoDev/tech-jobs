@@ -10,21 +10,21 @@ const Login = () => {
 
     const router = useRouter()
 
-    const { loading, error, isAuthenticated } = useContext(AuthContext)
+    const { loading, error, isAuthenticated, login } = useContext(AuthContext)
 
     useEffect(() => {
-        if(error) {
+        if (error) {
            console.log(error); 
         }
 
-        if(isAuthenticated && !loading) {
+        if (isAuthenticated && !loading) {
             router.push("/")
         }
     }, [isAuthenticated, error, loading])
 
     const submitHandler = (e) => {
         e.preventDefault()
-        console.log(email, password)
+        login({ username: email, password })
     }
 
   return (
