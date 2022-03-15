@@ -6,7 +6,11 @@ import AuthContext from "../../context/AuthContext"
 const Header = () => {
 
   // Get logged in user from the state
-  const { loading, user } = useContext(AuthContext)
+  const { loading, user, logout } = useContext(AuthContext)
+
+  const logoutHandler = () => {
+    logout()
+  }
 
   return (
     <div className="nav-wrapper">
@@ -27,7 +31,7 @@ const Header = () => {
             </button>
           </Link>
           {user ? (
-            <div className="btn dropdown ml-3">
+            <div className="dropdown ml-3">
               <a
                 className="btn dropdown-toggle mr-4"
                 id="dropdownMenuButton"
@@ -59,7 +63,7 @@ const Header = () => {
                   </a>
                 </Link>
                 <Link href="/">
-                  <a className="dropdown-item text-danger">
+                  <a className="dropdown-item text-danger" onClick={logoutHandler}>
                     Logout
                   </a>
                 </Link>
