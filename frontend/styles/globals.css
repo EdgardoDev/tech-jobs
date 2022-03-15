@@ -69,6 +69,8 @@ body {
 
 .buttons-wrapper {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .post-a-job-button {
