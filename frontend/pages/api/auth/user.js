@@ -9,7 +9,7 @@ export default async (req, res) => {
 
         if(!access) {
             return res.status(401).json({
-                error: "Login First To Load User"
+                message: "Login First To Load User"
             })
         }
 
@@ -27,8 +27,7 @@ export default async (req, res) => {
                     user: response.data
                 })
             }
-
-            
+   
         } catch (error) {
             res.status(error.response.status).json({
                 error: "Something Went Wrong When Getting The User",

@@ -65,7 +65,7 @@ const Search = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Search

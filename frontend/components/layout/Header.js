@@ -36,7 +36,7 @@ const Header = () => {
                 className="btn dropdown-toggle mr-4"
                 id="dropdownMenuButton"
                 data-toggle="dropdown"
-                aria-hashpopup="true"
+                aria-haspopup="true"
                 aria-expanded="false"
               >
                 <span>Hello, {user.first_name}</span>
