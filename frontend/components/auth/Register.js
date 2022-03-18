@@ -96,7 +96,7 @@ const Register = () => {
                 <button type="submit" className="register-button">
                 {loading ? (
                     <>
-                        <i aria-hidden className="fas fa-spinner"></i> LOADING...
+                        <i aria-hidden className="fas fa-spinner fa-spin"></i> LOADING...
                     </>
                 ) : (
                     <>

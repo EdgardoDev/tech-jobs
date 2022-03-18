@@ -27,7 +27,7 @@ const UpdateProfile = () => {
             clearErrors()
         }
 
-    }, [error, loading])
+    }, [error, user, loading])
 
     const submitHandler = (e) => {
         e.preventDefault()
