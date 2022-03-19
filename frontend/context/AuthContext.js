@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [error, setError] = useState(null)
+    const [updated, setUpdated] = useState(null)
 
     const router = useRouter()
 
@@ -59,6 +60,37 @@ export const AuthProvider = ({ children }) => {
             if (res.data.message) {
                 setLoading(false)
                 router.push("/login")
+            }
+
+        } catch (error) {
+            setLoading(false)
+            setError(
+                error.response && 
+                    (error.response.data.detail || error.response.data.error)
+            )
+        }
+    }
+
+       // Update user profile
+       const updateUserProfile = async ({ firstName, lastName, email, password }, access_token) => {
+        try {
+            setLoading(true)
+            
+            const res = await axios.put(`${process.env.API_URL}/api/current-user/update`, {
+                first_name: firstName,
+                last_name: lastName,
+                email,
+                password,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${access_token}`
+                }
+            })
+
+            if (res.data) {
+                setLoading(false)
+                setUpdated(true)
+                setUser(res.data)
             }
 
         } catch (error) {
@@ -127,9 +159,12 @@ export const AuthProvider = ({ children }) => {
                 user,
                 error,
                 isAuthenticated,
+                updated,
                 login,
                 register,
+                updateUserProfile,
                 logout,
+                setUpdated,
                 clearErrors,
             }}
         >

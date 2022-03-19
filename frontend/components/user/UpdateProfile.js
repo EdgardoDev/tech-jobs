@@ -5,7 +5,7 @@ import Image from "next/image"
 import AuthContext from "../../context/AuthContext"
 import { toast } from "react-toastify"
 
-const UpdateProfile = () => {
+const UpdateProfile = ({ access_token }) => {
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
@@ -13,7 +13,7 @@ const UpdateProfile = () => {
 
     const router = useRouter()
 
-    const { loading, error, user, clearErrors } = useContext(AuthContext)
+    const { updated, loading, error, user, clearErrors, updateUserProfile, setUpdated } = useContext(AuthContext)
 
     useEffect(() => {
         if(user) {
@@ -27,11 +27,16 @@ const UpdateProfile = () => {
             clearErrors()
         }
 
-    }, [error, user, loading])
+        if (updated) {
+            setUpdated(false)
+            router.push("/current-user")
+        }
+
+    }, [error, user, updated])
 
     const submitHandler = (e) => {
         e.preventDefault()
-        //register({ firstName, lastName, email, password })
+        updateUserProfile({ firstName, lastName, email, password }, access_token)
     }
 
     return (
@@ -91,7 +96,6 @@ const UpdateProfile = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     minLength={6}
-                    required
                   />
                 </div>
               </div>
