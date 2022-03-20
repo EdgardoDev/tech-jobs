@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [error, setError] = useState(null)
     const [updated, setUpdated] = useState(null)
+    const [uploaded, setUploaded] = useState(null)
 
     const router = useRouter()
 
@@ -71,8 +72,8 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
-       // Update user profile
-       const updateUserProfile = async ({ firstName, lastName, email, password }, access_token) => {
+    // Update user profile
+    const updateUserProfile = async ({ firstName, lastName, email, password }, access_token) => {
         try {
             setLoading(true)
             
@@ -91,6 +92,33 @@ export const AuthProvider = ({ children }) => {
                 setLoading(false)
                 setUpdated(true)
                 setUser(res.data)
+            }
+
+        } catch (error) {
+            setLoading(false)
+            setError(
+                error.response && 
+                    (error.response.data.detail || error.response.data.error)
+            )
+        }
+    }
+
+    // Upload Resume
+    const uploadResume = async (formData, access_token) => {
+        try {
+            setLoading(true)
+            
+            const res = await axios.put(`${process.env.API_URL}/api/upload/resume`, {
+               formData,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${access_token}`
+                }
+            })
+
+            if (res.data) {
+                setLoading(false)
+                setUploaded(true)
             }
 
         } catch (error) {
@@ -160,11 +188,14 @@ export const AuthProvider = ({ children }) => {
                 error,
                 isAuthenticated,
                 updated,
+                uploaded,
                 login,
                 register,
                 updateUserProfile,
                 logout,
                 setUpdated,
+                setUploaded,
+                uploadResume,
                 clearErrors,
             }}
         >
